@@ -1,13 +1,13 @@
-import { UseFormRegister } from "react-hook-form";
+import { UseFormRegister, FieldValues, Path } from "react-hook-form";
 
-interface RadioGroupProps<T> {
-  name: keyof T; // Nome do campo, baseado no esquema do formulário
-  options: { label: string; value: string }[]; // Opções de radio buttons
+interface RadioGroupProps<T extends FieldValues> {
+  name: Path<T>; // Corrigido: agora aceita campos aninhados
+  options: { label: string; value: string }[]; // Opções do radio
   register: UseFormRegister<T>; // Registro tipado
-  error?: string; // Mensagem de erro
+  error?: string; // Mensagem de erro (validação)
 }
 
-export function RadioGroup<T>({
+export function RadioGroup<T extends FieldValues>({
   name,
   options,
   register,
