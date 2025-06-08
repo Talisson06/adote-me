@@ -1,50 +1,27 @@
-# React + TypeScript + Vite
+# 🐾 Adote‑Me
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 🎉 Visão Geral
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Adote‑Me** é uma plataforma completa para adoção de pets. Conectamos ONGs/rescates e pessoas em busca de um novo melhor amigo, com uma experiência responsiva, rápida e segura.
 
-## Expanding the ESLint configuration
+Usuários podem:
+- Criar conta e fazer login
+- Navegar por pets disponíveis (com filtros)
+- Visualizar detalhes completos (idade, raça, história)
+- Enviar pedido de adoção
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+ONGs e Pessoas podem:
+- Cadastrar pets (fotos, descrição, dados)
+--- Cadastrar endereço onde se encontra o pet
+--- Encontar lista de pets disponiveis para adoação
+  
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 💻 Tecnologias
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **React.js + TypeScript** – UI moderna com tipagem
+- **Tailwind CSS** – Estilização rápida e responsiva
+- **Firebase** – Auth, Firestore e Storage
