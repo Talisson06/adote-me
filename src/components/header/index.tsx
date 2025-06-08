@@ -25,7 +25,7 @@ export function Header() {
 
                 {/* 🐾 Logo */}
                 <Link to="/">
-                    <h1 className="uppercase font-karantina text-white text-5xl">
+                    <h1 className="uppercase font-karantina text-white text-5xl md:text-2xl">
                         Adote-me🐾
                     </h1>
                 </Link>

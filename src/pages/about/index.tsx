@@ -3,7 +3,7 @@ import { Container } from "../../components/container";
 export  function About() {
     return (
         <Container>
-            <section className="bg-white p-6 rounded-lg max-w-3xl mx-auto">
+            <section className="bg-white p-6 rounded-lg max-w-3xl mx-auto md:my-5">
                 <h1 className="text-4xl font-bold text-center text-teal-600 mb-4">Sobre o Adote-me</h1>
 
                 <p className="text-lg text-gray-700 text-center mb-6">
