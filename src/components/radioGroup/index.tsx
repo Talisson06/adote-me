@@ -24,7 +24,7 @@ export function RadioGroup<T extends FieldValues>({
             <input
               type="radio"
               value={option.value}
-              {...register(name)}
+              {...register(name)} // ← agora compatível com Path<T>
               className="hidden peer"
             />
             <span className="w-5 h-5 border-2 border-teal-500 rounded-full inline-block peer-checked:bg-teal-500 peer-checked:border-teal-500 peer-checked:ring-2 peer-checked:ring-teal-300 transition duration-300">
