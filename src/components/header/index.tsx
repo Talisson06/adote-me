@@ -46,14 +46,14 @@ export function Header() {
 
                     {!loadingAuth && signed && (
                         <Link to="/dashboard">
-                            <div className="hover:underline hover:text-teal-500 text-white font-karantina text-3xl uppercase">
+                            <div className="hover:underline hover:text-teal-500 text-white font-karantina text-lg uppercase">
                                 <p>Dashboard</p>
                             </div>
                         </Link>
                     )}
                     {!loadingAuth && !signed && (
                         <Link to="/login">
-                            <div className="hover:underline hover:text-teal-500 text-white font-karantina text-3xl uppercase">
+                            <div className="hover:underline hover:text-teal-500 text-white font-karantina text-lg uppercase">
                                 <p>Entrar</p>
                             </div>
                         </Link>
