@@ -112,7 +112,7 @@ export function Home() {
         <Container>
             <section className="bg-white p-4 rounded-lg w-full max-w-4xl mx-auto flex justify-center items-center gap-2">
                 <input
-                    className="w-full border-2 rounded-lg h-9 px-3 outline-none text-2xl"
+                    className="w-full border-2 rounded-lg h-9 px-3 outline-none text-2xl md:text-lg"
                     placeholder="Digite a raça do pet..."
                     value={input}
                     onChange={(e) => setInput(e.target.value) }/>
@@ -123,7 +123,7 @@ export function Home() {
                 </button>
             </section>
 
-            <h1 className=" font-karantina text-6xl text-center mt-6 mb-5 ">Adote-me 🐾</h1>
+            <h1 className=" font-karantina text-3xl text-center mt-6 mb-5 ">Adote-me 🐾</h1>
 
             <main className=" mb-5 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {pet.map(pet => (
