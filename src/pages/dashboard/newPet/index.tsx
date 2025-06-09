@@ -69,6 +69,7 @@ export function NewPet() {
     function onSubmit(data: FormData) {
         if (petImages.length === 0) {
             toast.error("Envie alguma imagem para cadastar o seu pet")
+            console.log(petImages)
             return;
         }
 
@@ -102,7 +103,7 @@ export function NewPet() {
                 toast.error("Error ao Cadastrar o seu pet")
             })
 
-            
+
     }
 
     async function handleFile(e: ChangeEvent<HTMLInputElement>) {
@@ -119,28 +120,32 @@ export function NewPet() {
     }
 
     async function handleUpload(image: File) {
-        if (!user?.uid) {
-            return;
-        }
+        if (!user?.uid) return;
 
-        const currentUid = user?.uid;
+        const currentUid = user.uid;
         const uidImage = uuidv4();
 
         const uploadRef = ref(storage, `images/${currentUid}/${uidImage}`);
 
-        uploadBytes(uploadRef, image)
-            .then((snapshot) => {
-                getDownloadURL(snapshot.ref).then((downloadUrl) => {
-                    const imageItem = {
-                        name: uidImage,
-                        uid: currentUid,
-                        previewUrl: URL.createObjectURL(image),
-                        url: downloadUrl
-                    }
-                    setPetImages((images) => [...images, imageItem])
-                })
-            })
+        try {
+            const snapshot = await uploadBytes(uploadRef, image);
+            const downloadUrl = await getDownloadURL(snapshot.ref);
+
+            const imageItem = {
+                name: uidImage,
+                uid: currentUid,
+                previewUrl: URL.createObjectURL(image), // preview local
+                url: downloadUrl,                        // URL do Firebase
+            };
+
+            setPetImages((images) => [...images, imageItem]);
+        } catch (error) {
+            console.error("Erro no upload da imagem:", error);
+            toast.error("Falha ao fazer upload da imagem");
+        }
+        console.log("Imagens atuais:", petImages);
     }
+
     async function handleDeleteImage(item: ImageItemProps) {
         const imagePath = `images/${item.uid}/${item.name}`;
         const imageRef = ref(storage, imagePath);
@@ -158,28 +163,36 @@ export function NewPet() {
             <DashboardHeader />
 
             <div className=" w-full bg-white p-3 rounded-lg flex flex-col sm:flex-row items-center gap-2 ">
-                <button className="border-2 border-gray-600 w-48  h-32 rounded-lg flex items-center justify-center cursor-pointer ">
-                    <div className="absolute cursor-pointer ">
-                        <FiUpload size={30} color="#000" className="cursor-pointer" />
-                    </div>
-                    <div>
-                        <input className="opacity-0 cursor-pointer"
-                            type="file" accept="image/*"
-                            onChange={handleFile} />
-                    </div>
+                <button
+                    type="button"
+                    className="relative border-2 border-gray-600 w-48 h-32 rounded-lg flex items-center justify-center cursor-pointer"
+                >
+                    <FiUpload size={30} color="#000" />
+                    <input
+                        type="file"
+                        accept="image/*"
+                        className="absolute inset-0 opacity-0 cursor-pointer"
+                        onChange={handleFile}
+                    />
                 </button>
 
                 {petImages.map(item => (
-                    <div key={item.name} className="w-full h-32 flex items-center justify-center  relative">
-                        <button className="absolute" onClick={() => handleDeleteImage(item)}>
-                            <FiTrash2 size={30} color="#008080" />
+                    <div key={item.name} className="w-32 h-32 relative">
+                        <button
+                            type="button"
+                            className="absolute top-0 right-0 z-10"
+                            onClick={() => handleDeleteImage(item)}
+                        >
+                            <FiTrash2 size={20} color="#008080" />
                         </button>
                         <img
                             src={item.previewUrl}
-                            className="rounded-lg w-full h-32 object-cover"
-                            alt="Foto do Pet" />
+                            alt="Preview do pet"
+                            className="w-full h-full object-cover rounded-md"
+                        />
                     </div>
                 ))}
+
 
             </div>
 
