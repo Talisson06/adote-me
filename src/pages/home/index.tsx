@@ -112,13 +112,13 @@ export function Home() {
         <Container>
             <section className="bg-white p-4 rounded-lg w-full max-w-4xl mx-auto flex justify-center items-center gap-2">
                 <input
-                    className="w-full border-2 rounded-lg h-9 px-3 outline-none text-xl md:text-2xl"
+                    className="w-full border-2 rounded-lg h-9 px-3 outline-none text-lg"
                     placeholder="Digite a raça do pet..."
                     value={input}
                     onChange={(e) => setInput(e.target.value) }/>
 
                 <button onClick={ () => handleSearchPet()}
-                        className="bg-teal-500 h-9 px-8 text-white font-serif rounded-lg text-2xl">
+                        className="bg-teal-500 h-9 px-8 text-white font-serif rounded-lg text-lg">
                     Buscar
                 </button>
             </section>
