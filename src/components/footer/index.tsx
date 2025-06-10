@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <footer className="bg-teal-600 text-white py-6 mt-auto w-full">
+        <footer className="bg-teal-600 text-white py-6 mt-5 w-full ">
             <div className="container mx-auto flex flex-col md:flex-row gap-2 justify-between items-center px-4">
 
                 {/* Logo e descrição */}
