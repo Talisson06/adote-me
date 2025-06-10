@@ -98,7 +98,7 @@ export function Login() {
 
             <Link 
                 to="/register"
-                className="text-xl items-center flex">
+                className="text-lg items-center flex">
                 Não possui uma conta? <p className="text-blue-400 ml-2"> Faça seu registro</p></Link>
             
             

@@ -122,7 +122,7 @@ export function Register() {
 
                 <Link 
                     to="/login"
-                    className="text-xl flex items-center"
+                    className="text-lg flex items-center"
                 > Já possui uma conta? <p className="text-blue-400 ml-2">Faça o login</p></Link>
             
             </div>

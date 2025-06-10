@@ -9,7 +9,7 @@ export function DashboardHeader(){
     }
     
     return(
-        <div className=" w-full h-11 items-center flex bg-teal-600 rounded-lg text-white text-lg font-karantina gap-20 px-4 mb-4
+        <div className=" w-full h-11 items-center flex bg-teal-600 rounded-lg text-white text-lg font-karantina gap-10 px-4 mb-4
                         ">
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/dashboard/new">Cadastrar Novo Pet</Link>

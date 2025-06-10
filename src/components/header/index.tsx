@@ -38,7 +38,7 @@ export function Header() {
 
                     {/* 🌍 Menu para telas maiores */}
                     {!isMobile && (
-                        <nav className="hidden md:flex gap-6 text-white text-xl uppercase font-karantina">
+                        <nav className="hidden md:flex z-50 absolute gap-6 text-white text-xl uppercase font-karantina">
                             <Link to="/about" className="hover:underline hover:text-teal-500">Sobre</Link>
                             <Link to="/privacy" className="hover:underline hover:text-teal-500">Políticas</Link>
                         </nav>
@@ -61,7 +61,7 @@ export function Header() {
 
                     {/* 📱 Menu Mobile */}
                     {isMobile && (
-                        <button onClick={() => setMenuOpen(!menuOpen)} className="ml-4">
+                        <button onClick={() => setMenuOpen(!menuOpen)} className="ml-4 z-50">
                             {menuOpen ? <FiX size={28} color="white" /> : <FiMenu size={28} color="white" />}
                         </button>
                     )}
@@ -70,7 +70,7 @@ export function Header() {
 
             {/* 🔽 Dropdown Mobile */}
             {menuOpen && isMobile && (
-                <div className="absolute top-16 left-0 w-full  z-10 bg-teal-600 text-white font-karantina  shadow-md py-4 px-6 flex flex-col gap-4">
+                <div className="absolute top-10 left-0 w-full h-30 z-50 bg-teal-600 text-white font-karantina  shadow-md mb-10 py-4 px-6 flex flex-col gap-4">
                     <Link to="/about" className="hover:text-teal-500 text-xl uppercase">Sobre</Link>
                     <Link to="/privacy" className="hover:text-teal-500 text-xl uppercase">Políticas</Link>
                 </div>
