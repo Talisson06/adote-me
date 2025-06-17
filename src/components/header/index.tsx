@@ -47,7 +47,7 @@ export function Header() {
                     {!loadingAuth && signed && (
                         <Link to="/dashboard">
                             <div className="hover:underline hover:text-teal-500 text-white font-karantina text-lg uppercase">
-                                <p>Dashboard</p>
+                                <p>Painel</p>
                             </div>
                         </Link>
                     )}
