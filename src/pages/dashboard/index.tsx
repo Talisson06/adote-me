@@ -101,7 +101,7 @@ export function Dashboard() {
         <Container>
             <DashboardHeader />
 
-            <main className=" grid grid-cols-1 gap-6 md:grid-flow-cols-2 lg:grid-cols-3 uppercase mt-20 ">
+            <main className=" grid grid-cols-1 gap-6 md:grid-flow-cols-2 lg:grid-cols-3 uppercase mt-5 ">
 
                 {pets.map(pet => (
                     <section key={pet.id} className=" w-full bg-white rounded-lg relative">

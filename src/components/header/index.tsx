@@ -38,7 +38,7 @@ export function Header() {
 
                     {/* 🌍 Menu para telas maiores */}
                     {!isMobile && (
-                        <nav className="hidden md:flex z-50 absolute gap-6 text-white text-xl uppercase font-karantina">
+                        <nav className="hidden md:flex gap-10 text-white text-xl uppercase font-karantina">
                             <Link to="/about" className="hover:underline hover:text-teal-500">Sobre</Link>
                             <Link to="/privacy" className="hover:underline hover:text-teal-500">Políticas</Link>
                         </nav>
