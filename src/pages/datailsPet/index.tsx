@@ -7,7 +7,9 @@ import { getDoc, doc } from "firebase/firestore"
 import { db } from "../../services/firebaseConnection"
 
 import { Swiper, SwiperSlide } from "swiper/react"
-
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 interface PetProps {
     id: string;
@@ -104,9 +106,14 @@ export function PetDatails() {
             <Container>
 
                 {pet && <Swiper
+                    
                     slidesPerView={sliderPerView}
-                    pagination={{ clickable: true }}
-                    navigation>
+                    loop={true}
+                    autoplay={{
+                        delay:3000,
+                        disableOnInteraction: false
+                    }}
+                    >
                     {pet?.images.map(image => (
                         <SwiperSlide key={image.name}>
                             <img src={image.url}
