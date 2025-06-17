@@ -109,6 +109,7 @@ export function PetDatails() {
                     
                     slidesPerView={sliderPerView}
                     loop={true}
+                    pagination
                     autoplay={{
                         delay:3000,
                         disableOnInteraction: false
