@@ -53,7 +53,7 @@ const router = createBrowserRouter([
     element: <Login/>
   },
   {
-    path: "register",
+    path: "/register",
     element: <Register/>
   },
   {
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
     element: <ForgotPassword/>
   },
   {
-    path: "/reset",
+    path: "/reset-password",
     element: <ResetPassword/>
   }
 
