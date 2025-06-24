@@ -102,7 +102,7 @@ export function Login() {
                 Não possui uma conta? <p className="text-blue-400 ml-2"> Faça seu registro</p></Link>
             
             <Link
-                to="/reset"
+                to="/forgotpassword"
                 className="text-lg items-center flex">
                 Esqueção a senha? <p className=" text-blue-400 ml-2"> Clique Aqui!</p>
             </Link>
