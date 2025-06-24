@@ -1,7 +1,10 @@
-// pages/ResetPassword/index.tsx
 import { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import { getAuth, confirmPasswordReset, verifyPasswordResetCode } from "firebase/auth";
+import {
+    getAuth,
+    confirmPasswordReset,
+    verifyPasswordResetCode,
+} from "firebase/auth";
 import toast from "react-hot-toast";
 
 export function ResetPassword() {
@@ -21,7 +24,6 @@ export function ResetPassword() {
             return;
         }
 
-        // Verifica se o código é válido
         verifyPasswordResetCode(auth, oobCode)
             .then((email) => {
                 setEmail(email);
@@ -37,7 +39,7 @@ export function ResetPassword() {
         e.preventDefault();
 
         if (newPassword.length < 6) {
-            toast.error("A senha deve ter pelo menos 6 caracteres.");
+            toast.error("A senha deve ter no mínimo 6 caracteres.");
             return;
         }
 
@@ -52,13 +54,19 @@ export function ResetPassword() {
     }
 
     if (loading) {
-        return <p className="text-center mt-10 text-xl">Verificando link...</p>;
+        return (
+            <div className="text-center mt-10 text-xl text-gray-700">
+                Verificando link...
+            </div>
+        );
     }
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
             <form onSubmit={handleSubmit} className="bg-white p-6 rounded-md shadow-md w-full max-w-md">
-                <h1 className="text-2xl font-bold text-center mb-4">Nova senha para {email}</h1>
+                <h1 className="text-2xl font-bold text-center mb-4">
+                    Nova senha para {email}
+                </h1>
 
                 <input
                     type="password"
