@@ -8,6 +8,8 @@ import { NewPet } from "./pages/dashboard/newPet";
 import { PetDatails } from "./pages/datailsPet";
 import { PrivacyPolicy } from "./pages/policyPrivacy";
 import { About } from "./pages/about";
+import { ForgotPassword } from "./pages/changePassword"
+import { ResetPassword } from "./pages/resetPassoword";
 
 
 
@@ -43,6 +45,7 @@ const router = createBrowserRouter([
         path: "dashboard/new",
         element: <Private><NewPet/></Private> 
       },
+      
     ]
   },
   {
@@ -52,6 +55,14 @@ const router = createBrowserRouter([
   {
     path: "register",
     element: <Register/>
+  },
+  {
+    path: "/forgotpassword",
+    element: <ForgotPassword/>
+  },
+  {
+    path: "/resetpassword",
+    element: <ResetPassword/>
   }
 
 ])

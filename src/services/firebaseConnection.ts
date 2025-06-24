@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 
 
-import {getAuth} from 'firebase/auth'
+import {getAuth, sendPasswordResetEmail} from 'firebase/auth'
 import {getFirestore} from 'firebase/firestore'
 import {getStorage} from 'firebase/storage'
 
@@ -22,5 +22,12 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 const storage = getStorage(app);
+
+export async function resetPassword(email: string) {
+  const auth = getAuth();
+  return sendPasswordResetEmail(auth, email);
+
+}
+
 
 export {db, auth, storage}
