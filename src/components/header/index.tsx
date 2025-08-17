@@ -1,6 +1,6 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi"; // Ícones
+import { FiMenu, FiX } from "react-icons/fi";
 import { AuthContext } from "../../context/AuthContext";
 
 export function Header() {
@@ -9,72 +9,78 @@ export function Header() {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        // Detecta se é tela pequena ou grande
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-
-        handleResize();
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
+        const onResize = () => setIsMobile(window.innerWidth < 768);
+        onResize();
+        window.addEventListener("resize", onResize);
+        return () => window.removeEventListener("resize", onResize);
     }, []);
 
+    // fecha o menu quando trocar para desktop
+    useEffect(() => {
+        if (!isMobile) setMenuOpen(false);
+    }, [isMobile]);
+
     return (
-        <div className="w-full flex items-center justify-center h-16 bg-teal-600 drop-shadow mb-4">
-            <header className="flex w-full max-w-7xl items-center justify-between px-4 mx-auto">
+        <div className="w-full bg-teal-600 drop-shadow mb-4">
+            {/* faixa principal do header (16 = 64px) */}
+            <div className="flex items-center justify-center h-16">
+                <header className="flex w-full max-w-7xl items-center justify-between px-4 mx-auto">
+                    {/* logo */}
+                    <Link to="/" onClick={() => setMenuOpen(false)}>
+                        <h1 className="uppercase font-karantina text-white text-xl md:text-2xl">
+                            Adote-me🐾
+                        </h1>
+                    </Link>
 
-                {/* 🐾 Logo */}
-                <Link to="/">
-                    <h1 className="uppercase font-karantina text-white text-xl md:text-2xl">
-                        Adote-me🐾
-                    </h1>
-                </Link>
-
-
-
-                {/* 🔐 Ícones de Login ou Perfil */}
-                <div className="flex items-center gap-10">
-
-
-                    {/* 🌍 Menu para telas maiores */}
-                    {!isMobile && (
+                    <div className="flex items-center gap-10">
+                        {/* nav desktop */}
                         <nav className="hidden md:flex gap-10 text-white text-xl uppercase font-karantina">
-                            <Link to="/about" className="hover:underline hover:text-teal-500">Sobre</Link>
-                            <Link to="/privacy" className="hover:underline hover:text-teal-500">Políticas</Link>
+                            <Link to="/about" className="hover:underline hover:text-teal-200">Sobre</Link>
+                            <Link to="/privacy" className="hover:underline hover:text-teal-200">Políticas</Link>
                         </nav>
-                    )}
 
-                    {!loadingAuth && signed && (
-                        <Link to="/dashboard">
-                            <div className="hover:underline hover:text-teal-500 text-white font-karantina text-lg uppercase">
-                                <p>Painel</p>
-                            </div>
-                        </Link>
-                    )}
-                    {!loadingAuth && !signed && (
-                        <Link to="/login">
-                            <div className="hover:underline hover:text-teal-500 text-white font-karantina text-lg uppercase">
-                                <p>Entrar</p>
-                            </div>
-                        </Link>
-                    )}
+                        {/* ações à direita */}
+                        {!loadingAuth && signed && (
+                            <Link to="/dashboard" className="text-white font-karantina text-lg uppercase hover:underline hover:text-teal-200">
+                                Painel
+                            </Link>
+                        )}
+                        {!loadingAuth && !signed && (
+                            <Link to="/login" className="text-white font-karantina text-lg uppercase hover:underline hover:text-teal-200">
+                                Entrar
+                            </Link>
+                        )}
 
-                    {/* 📱 Menu Mobile */}
-                    {isMobile && (
-                        <button onClick={() => setMenuOpen(!menuOpen)} className="ml-4 z-50">
-                            {menuOpen ? <FiX size={28} color="white" /> : <FiMenu size={28} color="white" />}
-                        </button>
-                    )}
-                </div>
-            </header>
+                        {/* botão mobile */}
+                        {isMobile && (
+                            <button
+                                onClick={() => setMenuOpen((v) => !v)}
+                                aria-expanded={menuOpen}
+                                aria-controls="mobile-menu"
+                                className="ml-2"
+                            >
+                                {menuOpen ? <FiX size={28} color="white" /> : <FiMenu size={28} color="white" />}
+                            </button>
+                        )}
+                    </div>
+                </header>
+            </div>
 
-            {/* 🔽 Dropdown Mobile */}
-            {menuOpen && isMobile && (
-                <div className="absolute top-10 left-0 w-full h-30 z-50 bg-teal-600 text-white font-karantina  shadow-md mb-10 py-4 px-6 flex flex-col gap-4">
-                    <Link to="/about" className="hover:text-teal-500 text-xl uppercase">Sobre</Link>
-                    <Link to="/privacy" className="hover:text-teal-500 text-xl uppercase">Políticas</Link>
-                </div>
-            )}
+            {/* dropdown mobile: ocupa no máx. 60px e EMPURRA a página */}
+            <div
+                id="mobile-menu"
+                className={`md:hidden overflow-hidden transition-all duration-300 ${menuOpen ? "h-[60px]" : "h-0"
+                    }`}
+            >
+                <nav className="max-w-7xl mx-auto px-4 h-[60px] flex items-center gap-8 text-white font-karantina uppercase">
+                    <Link to="/about" onClick={() => setMenuOpen(false)} className="hover:text-teal-200">
+                        Sobre
+                    </Link>
+                    <Link to="/privacy" onClick={() => setMenuOpen(false)} className="hover:text-teal-200">
+                        Políticas
+                    </Link>
+                </nav>
+            </div>
         </div>
     );
 }

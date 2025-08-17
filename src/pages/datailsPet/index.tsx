@@ -102,7 +102,7 @@ export function PetDatails() {
 
     return (
 
-        <div className="-z-50 my-5"> 
+        <div className="my-5"> 
             <Container>
 
                 {pet && <Swiper
@@ -119,14 +119,14 @@ export function PetDatails() {
                         <SwiperSlide key={image.name}>
                             <img src={image.url}
                                 alt="Slide de Imagens"
-                                className="w-full h-96 object-cover " />
+                                className="w-full h-[250px] sm:h-[400px] object-cover rounded-lg " />
                         </SwiperSlide>
                     ))}
 
                 </Swiper>}
 
                 {pet && (
-                    <main className="w-full bg-white rounded-lg gap-6 px-4 py-4 ">
+                    <main className="w-full bg-white rounded-lg gap-6 px-4 py-4 z-0">
                         <div className="flex flex-col sm:flex-row mb-4 items-center justify-between">
                             <h1 className="font-karantina text-4xl uppercase justify-center px-2">{pet?.name} {getPetEmoji(pet?.type)}</h1>
                         </div>
