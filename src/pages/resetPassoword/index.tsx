@@ -6,8 +6,12 @@ import {
     verifyPasswordResetCode,
 } from "firebase/auth";
 import toast from "react-hot-toast";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 export function ResetPassword() {
+
+    const [showPassword, setShowPassword] = useState(false)
+
     const [params] = useSearchParams();
     const navigate = useNavigate();
     const [newPassword, setNewPassword] = useState("");
@@ -68,13 +72,26 @@ export function ResetPassword() {
                     Nova senha para {email}
                 </h1>
 
-                <input
-                    type="password"
-                    placeholder="Nova senha"
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
-                    className="w-full border border-gray-300 p-2 rounded mb-4"
-                />
+                <div className="relative">
+                    <input
+                        type="password"
+                        placeholder="Nova senha"
+                        value={newPassword}
+                        onChange={(e) => setNewPassword(e.target.value)}
+                        className="w-full border border-gray-300 p-2 rounded mb-4"
+                    />
+
+                    <button
+                        type="button"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600"
+                        >
+                            {showPassword ? <AiOutlineEyeInvisible size={22} /> : <AiOutlineEye size={22}/>}
+                    </button>
+
+
+                </div>
+
 
                 <button
                     type="submit"
