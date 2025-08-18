@@ -39,7 +39,7 @@ export default function Footer() {
             </div>
 
             {/* Direitos autorais */}
-            <div className="text-center text-gray-200 mt-4 text-xl flex items-center justify-center flex-col gap-5">
+            <div className="text-center text-gray-200 mt-4 text-xl flex items-center justify-center flex-col gap-5 md:flex-row">
                 <a
                     href="https://www.instagram.com/t.dias06/#"
                     target="_blank"
