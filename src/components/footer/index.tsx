@@ -1,3 +1,5 @@
+import { AiOutlineInstagram } from "react-icons/ai";
+
 export default function Footer() {
     return (
         <footer className="bg-teal-600 text-white py-6 mt-5 w-full h-full relative ">
@@ -12,14 +14,14 @@ export default function Footer() {
                 </div>
 
                 <div>
-                    
+
                 </div>
                 {/* Links úteis */}
                 <div className="flex flex-col md:flex-row items-center gap-6 text-xl">
                     <a href="/about" className="hover:underline">Sobre</a>
                     <a href="/privacy" className="hover:underline">Política de Privacidade</a>
-                    <a href="mailto:adotemecontato46@gmail.com" 
-                    className="hover:underline"> Contato</a>
+                    <a href="mailto:adotemecontato46@gmail.com"
+                        className="hover:underline"> Contato</a>
                 </div>
 
                 {/* Redes sociais */}
@@ -37,7 +39,16 @@ export default function Footer() {
             </div>
 
             {/* Direitos autorais */}
-            <div className="text-center text-gray-200 mt-4 text-xl">
+            <div className="text-center text-gray-200 mt-4 text-xl flex items-center justify-center flex-col gap-5">
+                <a
+                    href="https://www.instagram.com/t.dias06/#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-white underline hover:text-pink-600"
+                >
+                    <AiOutlineInstagram size={24} /> Desenvolvido por @t.dias06
+                    
+                </a>
                 &copy; {new Date().getFullYear()} Adote-me. Todos os direitos reservados.
             </div>
         </footer>
