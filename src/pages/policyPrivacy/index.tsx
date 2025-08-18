@@ -5,7 +5,7 @@ export  function PrivacyPolicy() {
         <Container>
             <div className="max-w-3xl mx-auto my-5 p-6 bg-white rounded-lg shadow-md">
                 <h1 className="text-3xl font-bold mb-4">Política de Privacidade - Adote-me</h1>
-                <p className="text-gray-700 mb-4">Última atualização: [data]</p>
+                <p className="text-gray-700 mb-4">Última atualização: [17/08/2025]</p>
 
                 <h2 className="text-2xl font-semibold mt-6 mb-2">1. Introdução</h2>
                 <p className="text-gray-700">Bem-vindo à <strong>Adote-me</strong>! Nossa plataforma conecta pessoas interessadas na adoção de animais. Priorizamos a segurança e privacidade dos usuários e garantimos um ambiente confiável.</p>
@@ -55,8 +55,8 @@ export  function PrivacyPolicy() {
                 <h2 className="text-2xl font-semibold mt-6 mb-2">6. Alterações nesta Política</h2>
                 <p className="text-gray-700">Esta política pode ser atualizada periodicamente. Recomendamos a leitura regular deste documento.</p>
 
-                <h2 className="text-2xl font-semibold mt-6 mb-2">7. Contato</h2>
-                <p className="text-gray-700">Caso tenha dúvidas, entre em contato pelo e-mail: <strong>seuemail@adoteme.com</strong></p>
+                <a href="malito:adotemecontato46@gmail.com" className="text-2xl font-semibold mt-6 mb-2">7. Contato</a>
+                <p className="text-gray-700">Caso tenha dúvidas, entre em contato pelo e-mail: <strong>adotemecontato46@gmail.com</strong></p>
             </div>
         </Container>
     );

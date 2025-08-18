@@ -18,7 +18,8 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row items-center gap-6 text-xl">
                     <a href="/about" className="hover:underline">Sobre</a>
                     <a href="/privacy" className="hover:underline">Política de Privacidade</a>
-                    <a href="https://www.instagram.com/t.dias06/?utm_source=qr&igsh=MThuYmZnM2JsY2U3eQ%3D%3D#" target="_blanck" className="hover:underline">Contato</a>
+                    <a href="mailto:adotemecontato46@gmail.com" 
+                    className="hover:underline"> Contato</a>
                 </div>
 
                 {/* Redes sociais */}
