@@ -72,7 +72,7 @@ export function ResetPassword() {
                     Nova senha para {email}
                 </h1>
 
-                <div className="relative">
+                <div className="relative items-center">
                     <input
                         type="password"
                         placeholder="Nova senha"
