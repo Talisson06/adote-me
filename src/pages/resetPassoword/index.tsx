@@ -84,7 +84,7 @@ export function ResetPassword() {
                     <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600"
+                        className="absolute items-center right-3 top-1/2 -translate-y-1/2 text-gray-600"
                         >
                             {showPassword ? <AiOutlineEyeInvisible size={22} /> : <AiOutlineEye size={22}/>}
                     </button>
