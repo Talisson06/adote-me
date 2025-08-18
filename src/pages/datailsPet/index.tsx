@@ -100,7 +100,18 @@ export function PetDatails() {
         }
     }, [])
 
+    const formatPhone = (phone: string) => {
+        if (!phone) return '';
+        const cleaned = phone.replace(/\D/g, '');
+      
+        return cleaned.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+      };
+      
+
     return (
+
+
+        
 
         <div className="my-5"> 
             <Container>
@@ -159,7 +170,7 @@ export function PetDatails() {
 
                         <div className="flex flex-col gap-2 uppercase text-xl px-2 my-2">
                             <p>whatsapp / contato:</p>
-                            <strong>{pet?.whatsapp}</strong>
+                            <strong>{formatPhone(pet?.whatsapp)}</strong>
                         </div>
 
                         <a href={`https://api.whatsapp.com/send?phone=${pet?.whatsapp}&text=Olá vi o anucio do pet, ${pet.name} na plataforma Adote-me e fiquei interessado`}

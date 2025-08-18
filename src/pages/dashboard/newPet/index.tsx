@@ -3,6 +3,7 @@ import { RadioGroup } from "../../../components/radioGroup";
 import { DashboardHeader } from "../../../components/painelHeader";
 
 import { FiUpload, FiTrash2 } from 'react-icons/fi'
+import InputMask from 'react-input-mask';
 
 import { useForm } from "react-hook-form";
 import { Input } from "../../../components/input";
@@ -55,6 +56,9 @@ interface ImageItemProps {
     previewUrl: string;
     url: string;
 }
+
+
+
 
 export function NewPet() {
 
@@ -276,16 +280,28 @@ export function NewPet() {
 
 
                     </div>
-                    <div className="mb-3  uppercase items-center ">
-                        <p className="font-medium italic text-2xl "> whatsapp/contato: </p>
-                        <Input
-                            type="text"
-                            register={register}
-                            name="whatsapp"
-                            error={errors.whatsapp?.message}
-                            placeholder="71988776655"
-                        />
+
+                    <div className="mb-3 uppercase items-center">
+                        <p className="font-medium italic text-2xl">whatsapp/contato:</p>
+                        <InputMask
+                            mask="(99) 99999-9999"
+                            alwaysShowMask={false}
+                            {...register("whatsapp")}
+                        >
+                            {(inputProps: any) => (
+                                <input
+                                    {...inputProps}
+                                    type="text"
+                                    placeholder="(71) 98877-6655"
+                                    className="border-2 w-full rounded-md px-2 text-2xl"
+                                />
+                            )}
+                        </InputMask>
+                        {errors.whatsapp && (
+                            <p className="mb-1 text-red-500">{errors.whatsapp.message}</p>
+                        )}
                     </div>
+
                     <div className="mb-3  uppercase items-center ">
                         <p className="font-medium italic text-2xl "> Descrição sobre o Pet: </p>
                         <textarea
